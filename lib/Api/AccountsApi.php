@@ -29,8 +29,11 @@
 namespace Swagger\Client\Api;
 
 
-use Http\Client;
-
+use Buzz\Browser;
+use Buzz\Client\Curl;
+use Buzz\Listener\CookieListener;
+use Http\Adapter\Buzz\Client as BuzzAdapter;
+use Http\Message\MessageFactory\GuzzleMessageFactory;
 use Psr\Http\Client\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
@@ -67,12 +70,12 @@ class AccountsApi
     protected $headerSelector;
 
     /**
-     * @param ClientInterface $client
+     * @param \Http\Adapter\Buzz\Client $client
      * @param Configuration   $config
      * @param HeaderSelector  $selector
      */
     public function __construct(
-        ClientInterface $client = null,
+        \Http\Adapter\Buzz\Client $client = null,
         Configuration $config = null,
         HeaderSelector $selector = null
     ) {
