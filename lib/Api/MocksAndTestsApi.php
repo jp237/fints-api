@@ -127,7 +127,7 @@ class MocksAndTestsApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->send($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -251,7 +251,7 @@ class MocksAndTestsApi
         $request = $this->checkCategorizationRequest($body);
 
         return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();
@@ -419,7 +419,7 @@ class MocksAndTestsApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->send($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -537,7 +537,7 @@ class MocksAndTestsApi
         $request = $this->mockBatchUpdateRequest($body);
 
         return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     return [null, $response->getStatusCode(), $response->getHeaders()];

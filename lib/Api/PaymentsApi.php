@@ -139,7 +139,7 @@ class PaymentsApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->send($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -275,7 +275,7 @@ class PaymentsApi
         $request = $this->getPaymentsRequest($ids, $account_ids, $min_amount, $max_amount, $page, $per_page, $order);
 
         return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();

@@ -42,6 +42,7 @@ use Swagger\Client\ApiException;
 use Swagger\Client\Configuration;
 use Swagger\Client\HeaderSelector;
 use Swagger\Client\ObjectSerializer;
+
 /**
  * BankConnectionsApi Class Doc Comment
  *
@@ -68,12 +69,12 @@ class BankConnectionsApi
     protected $headerSelector;
 
     /**
-     * @param \Http\Adapter\Buzz\Client $client
+     * @param ClientInterface $client
      * @param Configuration   $config
      * @param HeaderSelector  $selector
      */
     public function __construct(
-        \Http\Adapter\Buzz\Client $client = null,
+        ClientInterface $client = null,
         Configuration $config = null,
         HeaderSelector $selector = null
     ) {
@@ -126,7 +127,7 @@ class BankConnectionsApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->send($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -282,7 +283,7 @@ class BankConnectionsApi
         $request = $this->connectInterfaceRequest($body);
 
         return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();
@@ -449,7 +450,7 @@ class BankConnectionsApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->send($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -571,7 +572,7 @@ class BankConnectionsApi
         $request = $this->deleteAllBankConnectionsRequest();
 
         return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();
@@ -729,7 +730,7 @@ class BankConnectionsApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->send($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -839,7 +840,7 @@ class BankConnectionsApi
         $request = $this->deleteBankConnectionRequest($id);
 
         return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -1005,7 +1006,7 @@ class BankConnectionsApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->send($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -1163,7 +1164,7 @@ class BankConnectionsApi
         $request = $this->editBankConnectionRequest($id, $body);
 
         return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();
@@ -1351,7 +1352,7 @@ class BankConnectionsApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->send($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -1467,7 +1468,7 @@ class BankConnectionsApi
         $request = $this->getAllBankConnectionsRequest($ids);
 
         return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();
@@ -1634,7 +1635,7 @@ class BankConnectionsApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->send($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -1766,7 +1767,7 @@ class BankConnectionsApi
         $request = $this->getBankConnectionRequest($id);
 
         return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();
@@ -1944,7 +1945,7 @@ class BankConnectionsApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->send($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -2068,7 +2069,7 @@ class BankConnectionsApi
         $request = $this->getMultipleBankConnectionsRequest($ids);
 
         return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();
@@ -2249,7 +2250,7 @@ class BankConnectionsApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->send($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -2405,7 +2406,7 @@ class BankConnectionsApi
         $request = $this->importBankConnectionRequest($body);
 
         return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();
@@ -2573,7 +2574,7 @@ class BankConnectionsApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->send($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -2683,7 +2684,7 @@ class BankConnectionsApi
         $request = $this->removeInterfaceRequest($body);
 
         return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -2838,7 +2839,7 @@ class BankConnectionsApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->send($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -3010,7 +3011,7 @@ class BankConnectionsApi
         $request = $this->updateBankConnectionRequest($body);
 
         return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();

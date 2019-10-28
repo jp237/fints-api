@@ -126,7 +126,7 @@ class MandatorAdministrationApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->send($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -236,7 +236,7 @@ class MandatorAdministrationApi
         $request = $this->changeClientCredentialsRequest($body);
 
         return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -391,7 +391,7 @@ class MandatorAdministrationApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->send($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -531,7 +531,7 @@ class MandatorAdministrationApi
         $request = $this->createIbanRulesRequest($body);
 
         return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();
@@ -700,7 +700,7 @@ class MandatorAdministrationApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->send($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -840,7 +840,7 @@ class MandatorAdministrationApi
         $request = $this->createKeywordRulesRequest($body);
 
         return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();
@@ -1009,7 +1009,7 @@ class MandatorAdministrationApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->send($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -1141,7 +1141,7 @@ class MandatorAdministrationApi
         $request = $this->deleteIbanRulesRequest($body);
 
         return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();
@@ -1310,7 +1310,7 @@ class MandatorAdministrationApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->send($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -1442,7 +1442,7 @@ class MandatorAdministrationApi
         $request = $this->deleteKeywordRulesRequest($body);
 
         return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();
@@ -1611,7 +1611,7 @@ class MandatorAdministrationApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->send($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -1735,7 +1735,7 @@ class MandatorAdministrationApi
         $request = $this->deleteUsersRequest($body);
 
         return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();
@@ -1906,7 +1906,7 @@ class MandatorAdministrationApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->send($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -2032,7 +2032,7 @@ class MandatorAdministrationApi
         $request = $this->getIbanRuleListRequest($page, $per_page);
 
         return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();
@@ -2214,7 +2214,7 @@ class MandatorAdministrationApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->send($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -2340,7 +2340,7 @@ class MandatorAdministrationApi
         $request = $this->getKeywordRuleListRequest($page, $per_page);
 
         return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();
@@ -2548,7 +2548,7 @@ class MandatorAdministrationApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->send($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -2700,7 +2700,7 @@ class MandatorAdministrationApi
         $request = $this->getUserListRequest($min_registration_date, $max_registration_date, $min_deletion_date, $max_deletion_date, $min_last_active_date, $max_last_active_date, $include_monthly_stats, $monthly_stats_start_date, $monthly_stats_end_date, $min_bank_connection_count_in_monthly_stats, $is_deleted, $is_locked, $page, $per_page, $order);
 
         return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();
@@ -2813,7 +2813,7 @@ class MandatorAdministrationApi
         }
         // query params
         if ($monthly_stats_end_date !== null) {
-            $queryParams['monthlyStatsEndDate'] = ObjectSerializer::toQueryValue($monthly_stats_end_date);
+            $queryParams['monthlyStatsendRequestDate'] = ObjectSerializer::toQueryValue($monthly_stats_end_date);
         }
         // query params
         if ($min_bank_connection_count_in_monthly_stats !== null) {
