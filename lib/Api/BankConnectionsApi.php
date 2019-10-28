@@ -69,12 +69,12 @@ class BankConnectionsApi
     protected $headerSelector;
 
     /**
-     * @param ClientInterface $client
+     * @param \Http\Adapter\Buzz\Client $client
      * @param Configuration   $config
      * @param HeaderSelector  $selector
      */
     public function __construct(
-        ClientInterface $client = null,
+        \Http\Adapter\Buzz\Client $client = null,
         Configuration $config = null,
         HeaderSelector $selector = null
     ) {
@@ -82,7 +82,6 @@ class BankConnectionsApi
         $this->config = $config ?: new Configuration();
         $this->headerSelector = $selector ?: new HeaderSelector();
     }
-
     /**
      * @return Configuration
      */
