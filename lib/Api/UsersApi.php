@@ -127,7 +127,7 @@ class UsersApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->sendRequestRequest($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -259,7 +259,7 @@ class UsersApi
         $request = $this->createUserRequest($body);
 
         return $this->client
-            ->sendRequestRequestAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();
@@ -425,7 +425,7 @@ class UsersApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->sendRequestRequest($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -525,7 +525,7 @@ class UsersApi
         $request = $this->deleteAuthorizedUserRequest();
 
         return $this->client
-            ->sendRequestRequestAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -669,7 +669,7 @@ class UsersApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->sendRequestRequest($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -787,7 +787,7 @@ class UsersApi
         $request = $this->deleteUnverifiedUserRequest($user_id);
 
         return $this->client
-            ->sendRequestRequestAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -947,7 +947,7 @@ class UsersApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->sendRequestRequest($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -1079,7 +1079,7 @@ class UsersApi
         $request = $this->editAuthorizedUserRequest($body);
 
         return $this->client
-            ->sendRequestRequestAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();
@@ -1247,7 +1247,7 @@ class UsersApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->sendRequestRequest($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -1357,7 +1357,7 @@ class UsersApi
         $request = $this->executePasswordChangeRequest($body);
 
         return $this->client
-            ->sendRequestRequestAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -1504,7 +1504,7 @@ class UsersApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->sendRequestRequest($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -1618,7 +1618,7 @@ class UsersApi
         $request = $this->getAuthorizedUserRequest();
 
         return $this->client
-            ->sendRequestRequestAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();
@@ -1777,7 +1777,7 @@ class UsersApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->sendRequestRequest($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -1901,7 +1901,7 @@ class UsersApi
         $request = $this->getVerificationStatusRequest($user_id);
 
         return $this->client
-            ->sendRequestRequestAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();
@@ -2071,7 +2071,7 @@ class UsersApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->sendRequestRequest($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -2211,7 +2211,7 @@ class UsersApi
         $request = $this->requestPasswordChangeRequest($body);
 
         return $this->client
-            ->sendRequestRequestAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     $responseBody = $response->getBody();
@@ -2373,7 +2373,7 @@ class UsersApi
         try {
             $options = $this->createHttpClientOption();
             try {
-                $response = $this->client->sendRequestRequest($request, $options);
+                $response = $this->client->sendRequest($request, $options);
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -2491,7 +2491,7 @@ class UsersApi
         $request = $this->verifyUserRequest($user_id);
 
         return $this->client
-            ->sendRequestRequestAsync($request, $this->createHttpClientOption())
+            ->sendRequestAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
                     return [null, $response->getStatusCode(), $response->getHeaders()];
