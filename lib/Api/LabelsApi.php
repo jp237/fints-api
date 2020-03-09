@@ -27,14 +27,8 @@
  */
 
 namespace Swagger\Client\Api;
-
-use Buzz\Browser;
-use Buzz\Client\Curl;
-use Buzz\Listener\CookieListener;
-use Http\Adapter\Buzz\Client as BuzzAdapter;
-use Http\Message\MessageFactory\GuzzleMessageFactory;
 use Psr\Http\Client\ClientInterface;
-use GuzzleHttp\Exception\RequestException;
+use Buzz\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
@@ -69,16 +63,16 @@ class LabelsApi
     protected $headerSelector;
 
     /**
-     * @param \Http\Adapter\Buzz\Client $client
+     * @param \Psr\Http\Client\ClientInterface $client
      * @param Configuration   $config
      * @param HeaderSelector  $selector
      */
     public function __construct(
-        \Http\Adapter\Buzz\Client $client = null,
+        \Psr\Http\Client\ClientInterface $client = null,
         Configuration $config = null,
         HeaderSelector $selector = null
     ) {
-        $this->client = $client ?: new Client();
+        $this->client = $client ?: new \Buzz\Client\FileGetContents();
         $this->config = $config ?: new Configuration();
         $this->headerSelector = $selector ?: new HeaderSelector();
     }

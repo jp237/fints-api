@@ -28,14 +28,8 @@
 
 namespace Swagger\Client\Api;
 
-
-use Buzz\Browser;
-use Buzz\Client\Curl;
-use Buzz\Listener\CookieListener;
-use Http\Adapter\Buzz\Client as BuzzAdapter;
-use Http\Message\MessageFactory\GuzzleMessageFactory;
 use Psr\Http\Client\ClientInterface;
-use GuzzleHttp\Exception\RequestException;
+use Buzz\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
@@ -70,16 +64,16 @@ class AccountsApi
     protected $headerSelector;
 
     /**
-     * @param \Http\Adapter\Buzz\Client $client
+     * @param \Psr\Http\Client\ClientInterface $client
      * @param Configuration   $config
      * @param HeaderSelector  $selector
      */
     public function __construct(
-        \Http\Adapter\Buzz\Client $client = null,
+        \Psr\Http\Client\ClientInterface $client = null,
         Configuration $config = null,
         HeaderSelector $selector = null
     ) {
-        $this->client = $client ?: new Client();
+        $this->client = $client ?: new \Buzz\Client\FileGetContents();
         $this->config = $config ?: new Configuration();
         $this->headerSelector = $selector ?: new HeaderSelector();
     }
@@ -377,7 +371,7 @@ class AccountsApi
      */
     public function deleteAllAccounts()
     {
-        list($response) = $this->deleteAllAccountsWithHttpInfo();
+        [$response] = $this->deleteAllAccountsWithHttpInfo();
         return $response;
     }
 
@@ -658,7 +652,7 @@ class AccountsApi
      */
     public function editAccount($id, $body = null)
     {
-        list($response) = $this->editAccountWithHttpInfo($id, $body);
+        [$response] = $this->editAccountWithHttpInfo($id, $body);
         return $response;
     }
 
@@ -983,7 +977,7 @@ class AccountsApi
      */
     public function executeSepaDirectDebit($body)
     {
-        list($response) = $this->executeSepaDirectDebitWithHttpInfo($body);
+        [$response] = $this->executeSepaDirectDebitWithHttpInfo($body);
         return $response;
     }
 
@@ -1300,7 +1294,7 @@ class AccountsApi
      */
     public function executeSepaMoneyTransfer($body)
     {
-        list($response) = $this->executeSepaMoneyTransferWithHttpInfo($body);
+        [$response] = $this->executeSepaMoneyTransferWithHttpInfo($body);
         return $response;
     }
 
@@ -1617,7 +1611,7 @@ class AccountsApi
      */
     public function getAccount($id)
     {
-        list($response) = $this->getAccountWithHttpInfo($id);
+        [$response] = $this->getAccountWithHttpInfo($id);
         return $response;
     }
 
@@ -1935,7 +1929,7 @@ class AccountsApi
      */
     public function getAndSearchAllAccounts($ids = null, $search = null, $account_type_ids = null, $account_types = null, $bank_connection_ids = null, $min_last_successful_update = null, $max_last_successful_update = null, $min_balance = null, $max_balance = null)
     {
-        list($response) = $this->getAndSearchAllAccountsWithHttpInfo($ids, $search, $account_type_ids, $account_types, $bank_connection_ids, $min_last_successful_update, $max_last_successful_update, $min_balance, $max_balance);
+        [$response] = $this->getAndSearchAllAccountsWithHttpInfo($ids, $search, $account_type_ids, $account_types, $bank_connection_ids, $min_last_successful_update, $max_last_successful_update, $min_balance, $max_balance);
         return $response;
     }
 
@@ -2297,7 +2291,7 @@ class AccountsApi
      */
     public function getDailyBalances($account_ids = null, $start_date = null, $end_date = null, $with_projection = 'true', $page = '1', $per_page = '20', $order = null)
     {
-        list($response) = $this->getDailyBalancesWithHttpInfo($account_ids, $start_date, $end_date, $with_projection, $page, $per_page, $order);
+        [$response] = $this->getDailyBalancesWithHttpInfo($account_ids, $start_date, $end_date, $with_projection, $page, $per_page, $order);
         return $response;
     }
 
@@ -2666,7 +2660,7 @@ class AccountsApi
      */
     public function getMultipleAccounts($ids)
     {
-        list($response) = $this->getMultipleAccountsWithHttpInfo($ids);
+        [$response] = $this->getMultipleAccountsWithHttpInfo($ids);
         return $response;
     }
 
@@ -2971,7 +2965,7 @@ class AccountsApi
      */
     public function requestSepaDirectDebit($body)
     {
-        list($response) = $this->requestSepaDirectDebitWithHttpInfo($body);
+        [$response] = $this->requestSepaDirectDebitWithHttpInfo($body);
         return $response;
     }
 
@@ -3304,7 +3298,7 @@ class AccountsApi
      */
     public function requestSepaMoneyTransfer($body)
     {
-        list($response) = $this->requestSepaMoneyTransferWithHttpInfo($body);
+        [$response] = $this->requestSepaMoneyTransferWithHttpInfo($body);
         return $response;
     }
 
